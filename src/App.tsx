@@ -177,18 +177,20 @@ export default function App() {
       {isLoading ? (
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       ) : (
-        <div className="relative min-h-screen text-slate-100 selection:bg-brand-cyan/30 selection:text-white">
+        <div className="relative min-h-screen bg-[#0b0d10] text-slate-100 selection:bg-brand-cyan/30 selection:text-white">
           {/* Audio/Video/Visual atmospheric layers */}
           <BackgroundEffects />
           <CustomCursor />
           <Navbar onOpenAIChat={() => setAiChatOpen(true)} />
 
           {/* FLOAT TRIGGER AI AGENT */}
-          <div className="fixed bottom-6 left-6 z-30">
+          <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-30">
             <button
+              type="button"
+              aria-label="Open AI assistant"
               onClick={() => setAiChatOpen(true)}
               data-cursor="chat"
-              className="flex items-center gap-2 px-4 py-3 bg-dark-card border border-brand-cyan/25 backdrop-blur-md rounded-full text-xs font-semibold text-brand-cyan tracking-wide hover:bg-brand-cyan hover:text-dark-bg transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.15)] active:scale-95 cursor-pointer"
+              className="flex items-center gap-2 px-3.5 py-2.5 sm:px-4 sm:py-3 bg-dark-card border border-brand-cyan/25 backdrop-blur-md rounded-full text-[10px] sm:text-xs font-semibold text-brand-cyan tracking-[0.18em] uppercase hover:bg-brand-cyan hover:text-dark-bg transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.15)] active:scale-95 cursor-pointer"
             >
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
               <span>ASK MY AI COGNITIVE REPLICA</span>
@@ -197,7 +199,7 @@ export default function App() {
 
           <main className="w-full">
             {/* 1. HERO SECTION */}
-            <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 py-24 overflow-hidden">
+            <section id="hero" className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-12 py-24 sm:py-28 lg:py-32 overflow-hidden">
               {/* Decorative background grids */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(192,132,252,0.05),transparent_60%)] pointer-events-none" />
               <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-brand-cyan/3 rounded-full blur-[100px] pointer-events-none animate-pulse" />
@@ -208,13 +210,13 @@ export default function App() {
                 <div className="lg:col-span-7 flex flex-col items-start">
                   
                   {/* Floating active chip status */}
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-neutral-900/60 border border-white/5 backdrop-blur-md rounded-full text-[10px] font-mono tracking-widest text-brand-cyan uppercase mb-8 shadow-sm">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-neutral-900/60 border border-white/10 backdrop-blur-md rounded-full text-[10px] font-mono tracking-[0.22em] text-brand-cyan uppercase mb-8 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
                     <span>AI-Engineered Portfolio v1.5</span>
                   </div>
 
                   {/* Sequential slider text layer */}
-                  <div className="relative h-44 md:h-52 w-full overflow-hidden mb-6">
+                  <div className="relative h-44 sm:h-48 md:h-52 lg:h-60 w-full overflow-hidden mb-6">
                     {HERO_SEQUENCE.map((seq, index) => {
                       const isActive = index === currentHeroIndex;
                       return (
@@ -229,10 +231,10 @@ export default function App() {
                           <span className="font-mono text-xs md:text-sm text-neutral-400 tracking-[0.3em] uppercase mb-2">
                             {seq.prefix}
                           </span>
-                          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter text-white leading-none">
+                          <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.4rem] tracking-[-0.05em] text-white leading-[0.9] max-w-[11ch]">
                             {seq.main}
                           </h1>
-                          <p className="mt-4 text-sm md:text-base text-brand-cyan font-semibold flex items-center gap-1.5 font-mono">
+                          <p className="mt-4 text-sm md:text-base text-brand-cyan font-semibold flex items-center gap-1.5 font-mono tracking-[0.08em] uppercase">
                             <Sparkles size={14} className="animate-spin" style={{ animationDuration: "8s" }} />
                             <span>{seq.accent}</span>
                           </p>
@@ -255,18 +257,20 @@ export default function App() {
                   </div>
 
                   {/* Master CTA Deck */}
-                  <div className="flex flex-wrap gap-4 items-center">
+                  <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
                     <button
+                      type="button"
                       onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-                      className="group px-6 py-3.5 bg-white text-dark-bg hover:bg-brand-cyan rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center gap-2 shadow-[0_10px_30px_rgba(255,255,255,0.05)] cursor-pointer"
+                      className="group px-5 sm:px-6 py-3.5 bg-white text-dark-bg hover:bg-brand-cyan rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center gap-2 shadow-[0_14px_36px_rgba(255,255,255,0.08)] cursor-pointer"
                     >
                       <span>Explore Projects</span>
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </button>
                     
                     <button
+                      type="button"
                       onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                      className="px-6 py-3.5 bg-neutral-900/40 hover:bg-white/5 border border-white/10 hover:border-white/20 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer"
+                      className="px-5 sm:px-6 py-3.5 bg-neutral-900/45 hover:bg-white/5 border border-white/10 hover:border-white/20 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase transition-all cursor-pointer"
                     >
                       Contact Me
                     </button>
