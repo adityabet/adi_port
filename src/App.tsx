@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 
 import { PORTFOLIO_DATA, Project, Experience } from "./types";
+import resumePdf from "../assets/Aditya_Bet_Resume_7083353166.pdf";
 import BackgroundEffects from "./components/BackgroundEffects";
 import CustomCursor from "./components/CustomCursor";
 import LoadingScreen from "./components/LoadingScreen";
@@ -797,7 +798,84 @@ export default function App() {
               </div>
             </section>
 
-            {/* 6. TESTIMONIALS MARQUEE SCREEN */}
+            {/* 6. RESUME SECTION */}
+            <section id="resume" className="py-24 px-6 md:px-12 relative overflow-hidden">
+              <div className="max-w-6xl mx-auto w-full">
+                <div className="flex items-center gap-3 mb-16">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+                  <span className="font-mono text-xs text-brand-gold tracking-widest uppercase">Resume</span>
+                  <div className="flex-1 h-[1px] bg-white/5" />
+                </div>
+
+                <div className="glass-panel rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+                  <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-0">
+                    <div className="p-6 md:p-8 lg:p-10">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-1 text-[10px] font-mono uppercase tracking-[0.2em] text-brand-cyan">
+                        <FileText size={12} />
+                        Profile Summary
+                      </span>
+                      <h2 className="mt-6 font-display font-black text-3xl md:text-4xl tracking-tighter text-white">
+                        Resume
+                      </h2>
+                      <p className="mt-4 max-w-xl text-sm md:text-base text-neutral-300 leading-relaxed">
+                        You can view or download my latest resume below.
+                      </p>
+
+                      <div className="mt-8 flex flex-wrap gap-3">
+                        <a
+                          href={resumePdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-dark-bg transition-all duration-300 hover:bg-brand-cyan"
+                        >
+                          <FileText size={14} />
+                          Open Resume
+                        </a>
+                        <a
+                          href={resumePdf}
+                          download
+                          className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-neutral-900/40 px-5 py-3 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-neutral-100 transition-all duration-300 hover:border-brand-gold/40 hover:text-brand-gold"
+                        >
+                          <ArrowUpRight size={14} />
+                          Download Resume
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/5 bg-neutral-950/40 p-6 md:p-8 lg:p-10 lg:border-l lg:border-t-0">
+                      <div className="rounded-2xl border border-white/10 bg-dark-card p-5">
+                        <div className="flex items-center justify-between gap-3 pb-4 border-b border-white/5">
+                          <div>
+                            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-neutral-500">Document</p>
+                            <h3 className="mt-2 font-display font-bold text-lg text-white">Aditya Bet</h3>
+                          </div>
+                          <div className="rounded-full bg-brand-cyan/10 p-2 text-brand-cyan">
+                            <FileText size={16} />
+                          </div>
+                        </div>
+
+                        <div className="mt-5 space-y-3">
+                          <div className="flex items-center justify-between text-xs text-neutral-400">
+                            <span>Latest Resume</span>
+                            <span className="font-mono text-brand-cyan">PDF</span>
+                          </div>
+                          <div className="flex items-center justify-between text-xs text-neutral-400">
+                            <span>Updated</span>
+                            <span className="font-mono">2026</span>
+                          </div>
+                          <div className="flex items-center justify-between text-xs text-neutral-400">
+                            <span>Role Focus</span>
+                            <span className="font-mono text-brand-gold">AI / Data</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 7. TESTIMONIALS MARQUEE SCREEN */}
             <section className="py-24 overflow-hidden relative bg-neutral-950/20">
               <div className="max-w-6xl mx-auto w-full px-6 md:px-12 mb-12">
                 <div className="flex items-center gap-3">

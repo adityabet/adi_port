@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { label: "About", targetId: "about" },
   { label: "Skills", targetId: "skills" },
   { label: "Projects", targetId: "projects" },
+  { label: "Resume", targetId: "resume" },
   { label: "Timeline", targetId: "timeline" },
   { label: "Contact", targetId: "contact" }
 ];
