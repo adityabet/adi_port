@@ -33,6 +33,7 @@ export interface SkillCategory {
 export interface Certificate {
   name: string;
   issuer?: string;
+  category?: string;
   url?: string;
 }
 
@@ -208,11 +209,11 @@ export const PORTFOLIO_DATA = {
     }
   ] as SkillCategory[],
   certificates: [
-    { name: "GenAI-Powered Data Analytics Job Simulation (Forage)", url: "https://linkedin.com/in/aditya-bet-592372219" },
-    { name: "SQL Mastery (Data Analytics)", url: "https://linkedin.com/in/aditya-bet-592372219" },
-    { name: "Advanced Excel Mastery (Data Analytics)", url: "https://linkedin.com/in/aditya-bet-592372219" },
-    { name: "Introduction to Data Analytics", url: "https://linkedin.com/in/aditya-bet-592372219" },
-    { name: "Internship in CodSoft", url: "https://linkedin.com/in/aditya-bet-592372219" }
+    { name: "GenAI-Powered Data Analytics Job Simulation", issuer: "Forage", category: "AI & Data Analytics", url: "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link" },
+    { name: "SQL Mastery", issuer: "Data Analytics", category: "Databases & Querying", url: "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link" },
+    { name: "Advanced Excel Mastery", issuer: "Data Analytics", category: "Excel & Reporting", url: "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link" },
+    { name: "Introduction to Data Analytics", issuer: "Analytics Fundamentals", category: "Core Analytics", url: "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link" },
+    { name: "Internship in CodSoft", issuer: "Software Development", category: "Professional Experience", url: "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link" }
   ] as Certificate[],
   interests: [
     { title: "Database & Optimization", description: "Designing schemas and writing highly optimized queries." },

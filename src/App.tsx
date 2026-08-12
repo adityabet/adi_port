@@ -61,6 +61,13 @@ export default function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
 
+  const certificateGroups = PORTFOLIO_DATA.certificates.reduce<Record<string, typeof PORTFOLIO_DATA.certificates>>((groups, cert) => {
+    const category = cert.category || "General";
+    if (!groups[category]) groups[category] = [];
+    groups[category].push(cert);
+    return groups;
+  }, {});
+
   // Python Terminal Emulator States
   const [terminalOutput, setTerminalOutput] = useState<string[]>([
     "Python 3.10.8 (main, Jan 2026, 12:44) [GCC 11.2.0] on linux",
@@ -900,46 +907,61 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Infinite scrolling marquee track columns */}
-              <div className="flex flex-col gap-4">
-                {/* Row 1 - Left to Right */}
-                <div className="w-full overflow-hidden whitespace-nowrap relative flex py-2 bg-neutral-950/40">
-                  <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused] pointer-events-auto">
-                    {[...PORTFOLIO_DATA.certificates, ...PORTFOLIO_DATA.certificates].map((cert, i) => (
-                      <div 
-                        key={i} 
-                        className="inline-flex items-center gap-3.5 bg-dark-card border border-white/5 rounded-2xl px-6 py-4 backdrop-blur-md hover:border-brand-gold/30 transition-all cursor-pointer shadow-lg"
-                      >
-                        <div className="w-7 h-7 rounded-full bg-brand-gold/10 flex items-center justify-center text-xs text-brand-gold font-mono">
-                          🏆
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-mono text-neutral-500 uppercase block">Verified Certification</span>
-                          <span className="font-display font-bold text-xs text-white tracking-wide">{cert.name}</span>
-                        </div>
+              <div className="max-w-6xl mx-auto w-full px-6 md:px-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                  {Object.entries(certificateGroups).map(([category, certs]) => (
+                    <div key={category} className="glass-panel rounded-2xl border border-white/5 p-5">
+                      <div className="mb-4 flex items-center justify-between gap-3">
+                        <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-brand-gold">{category}</span>
+                        <span className="rounded-full border border-white/5 bg-white/5 px-2 py-1 text-[9px] font-mono text-neutral-400">
+                          {certs.length}
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Row 2 - Intersect Interests */}
-                <div className="w-full overflow-hidden whitespace-nowrap relative flex py-2">
-                  <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused] pointer-events-auto">
-                    {[...PORTFOLIO_DATA.interests, ...PORTFOLIO_DATA.interests].map((interest, i) => (
-                      <div 
-                        key={i} 
-                        className="inline-flex items-center gap-3.5 bg-dark-card border border-white/5 rounded-2xl px-6 py-4 backdrop-blur-md hover:border-brand-cyan/30 transition-all cursor-pointer shadow-lg"
-                      >
-                        <div className="w-7 h-7 rounded-full bg-brand-cyan/10 flex items-center justify-center text-xs text-brand-cyan font-mono">
-                          🔥
-                        </div>
-                        <div>
-                          <span className="text-[10px] font-mono text-neutral-500 uppercase block">Core Focus</span>
-                          <span className="font-display font-bold text-xs text-white tracking-wide">{interest.title} — <span className="text-neutral-400 font-normal">{interest.description}</span></span>
-                        </div>
+                      <div className="space-y-3">
+                        {certs.map((cert) => (
+                          <a
+                            key={cert.name}
+                            href={cert.url || "https://drive.google.com/drive/folders/19txwaKT0hAUH4VUVr4xj8Hk3qmRgTl2X?usp=drive_link"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group block rounded-xl border border-white/5 bg-neutral-900/40 p-3 transition-all duration-300 hover:border-brand-gold/30 hover:bg-neutral-900/60"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="min-w-0">
+                                <p className="text-[9px] font-mono uppercase tracking-[0.18em] text-neutral-500">{cert.issuer || "Certificate"}</p>
+                                <p className="mt-2 text-sm font-display font-bold text-white leading-snug group-hover:text-brand-gold transition-colors">
+                                  {cert.name}
+                                </p>
+                              </div>
+                              <div className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-gold/10 text-brand-gold">
+                                <ArrowUpRight size={12} />
+                              </div>
+                            </div>
+                          </a>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-12 w-full overflow-hidden whitespace-nowrap relative flex py-2">
+                <div className="flex gap-4 animate-marquee-reverse hover:[animation-play-state:paused] pointer-events-auto">
+                  {[...PORTFOLIO_DATA.interests, ...PORTFOLIO_DATA.interests].map((interest, i) => (
+                    <div 
+                      key={i} 
+                      className="inline-flex items-center gap-3.5 bg-dark-card border border-white/5 rounded-2xl px-6 py-4 backdrop-blur-md hover:border-brand-cyan/30 transition-all cursor-pointer shadow-lg"
+                    >
+                      <div className="w-7 h-7 rounded-full bg-brand-cyan/10 flex items-center justify-center text-xs text-brand-cyan font-mono">
+                        🔥
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-mono text-neutral-500 uppercase block">Core Focus</span>
+                        <span className="font-display font-bold text-xs text-white tracking-wide">{interest.title} — <span className="text-neutral-400 font-normal">{interest.description}</span></span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </section>
