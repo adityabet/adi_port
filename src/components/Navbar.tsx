@@ -98,18 +98,6 @@ export default function Navbar({ onOpenAIChat }: NavbarProps) {
 
         {/* CTA Interface Panel Triggers */}
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label="Chat with AI twin"
-            onClick={onOpenAIChat}
-            data-cursor="chat"
-            className="group hidden sm:flex items-center gap-2 bg-gradient-to-r from-brand-cyan/20 to-brand-purple/20 hover:from-brand-cyan hover:to-brand-purple border border-brand-cyan/40 hover:border-transparent px-4 py-2 rounded-full transition-all duration-500 shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-[0_0_25px_rgba(34,211,238,0.3)] text-xs text-brand-cyan hover:text-dark-bg font-bold cursor-pointer relative overflow-hidden"
-          >
-            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-white/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
-            <MessageSquareCode size={14} className="animate-bounce" />
-            <span>TALK TO AI TWIN</span>
-          </button>
-
           {/* Mobile menu triggers */}
           <button
             type="button"

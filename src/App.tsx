@@ -200,20 +200,6 @@ export default function App() {
           <CustomCursor />
           <Navbar onOpenAIChat={() => setAiChatOpen(true)} />
 
-          {/* FLOAT TRIGGER AI AGENT */}
-          <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-30">
-            <button
-              type="button"
-              aria-label="Open AI assistant"
-              onClick={() => setAiChatOpen(true)}
-              data-cursor="chat"
-              className="flex items-center gap-2 px-3.5 py-2.5 sm:px-4 sm:py-3 bg-dark-card border border-brand-cyan/25 backdrop-blur-md rounded-full text-[10px] sm:text-xs font-semibold text-brand-cyan tracking-[0.18em] uppercase hover:bg-brand-cyan hover:text-dark-bg transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.15)] active:scale-95 cursor-pointer"
-            >
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>ASK MY AI COGNITIVE REPLICA</span>
-            </button>
-          </div>
-
           <main className="w-full">
             {/* 1. HERO SECTION */}
             <section id="hero" className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-10 lg:px-12 py-24 sm:py-28 lg:py-32 overflow-hidden">
