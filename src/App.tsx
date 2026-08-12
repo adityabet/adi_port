@@ -21,7 +21,9 @@ import {
   Briefcase,
   GraduationCap,
   Play,
-  RotateCcw
+  RotateCcw,
+  Instagram,
+  MessageCircle
 } from "lucide-react";
 
 import { PORTFOLIO_DATA, Project, Experience } from "./types";
@@ -40,6 +42,13 @@ const HERO_SEQUENCE = [
   { prefix: "I AM A", main: "Software Intern", accent: "At AmbuGrid System LLP", bg: "from-emerald-500/10 to-transparent" },
   { prefix: "I AM A", main: "Data Intern", accent: "At Yadgreen Saudi Arabia", bg: "from-amber-500/10 to-transparent" },
   { prefix: "WE CAN BUILD", main: "The Future", accent: "Let's Collaborate Today", bg: "from-pink-500/10 to-transparent" }
+];
+
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: PORTFOLIO_DATA.profile.linkedin, icon: Linkedin, className: "hover:bg-brand-cyan hover:text-dark-bg" },
+  { label: "GitHub", href: PORTFOLIO_DATA.profile.github, icon: Github, className: "hover:bg-neutral-100 hover:text-dark-bg" },
+  { label: "Instagram", href: PORTFOLIO_DATA.profile.instagram, icon: Instagram, className: "hover:bg-pink-500 hover:text-white" },
+  { label: "WhatsApp", href: PORTFOLIO_DATA.profile.whatsapp, icon: MessageCircle, className: "hover:bg-emerald-500 hover:text-white" }
 ];
 
 export default function App() {
@@ -338,16 +347,22 @@ export default function App() {
                     </div>
 
                     {/* Social networks container */}
-                    <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+                    <div className="mt-6 pt-5 border-t border-white/5 flex items-center justify-between gap-3">
                       <span className="text-[10px] font-mono text-neutral-500 uppercase">Connect Channels</span>
-                      <div className="flex items-center gap-3">
-                        <a href={PORTFOLIO_DATA.profile.github} target="_blank" rel="noopener noreferrer" className="p-2 bg-neutral-900/60 hover:bg-brand-cyan hover:text-dark-bg rounded-lg border border-white/5 hover:border-transparent transition-all">
-                          <Github size={13} />
-                        </a>
-                        <a href={PORTFOLIO_DATA.profile.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-neutral-900/60 hover:bg-brand-purple hover:text-white rounded-lg border border-white/5 hover:border-transparent transition-all">
-                          <Linkedin size={13} />
-                        </a>
-                        <a href={`mailto:${PORTFOLIO_DATA.profile.email}`} className="p-2 bg-neutral-900/60 hover:bg-brand-gold hover:text-dark-bg rounded-lg border border-white/5 hover:border-transparent transition-all">
+                      <div className="flex items-center gap-2">
+                        {SOCIAL_LINKS.map(({ label, href, icon: Icon, className }) => (
+                          <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={label}
+                            className={`p-2.5 bg-neutral-900/60 rounded-lg border border-white/5 hover:border-transparent transition-all duration-300 ${className}`}
+                          >
+                            <Icon size={13} />
+                          </a>
+                        ))}
+                        <a href={`mailto:${PORTFOLIO_DATA.profile.email}`} aria-label="Email Aditya Bet" className="p-2.5 bg-neutral-900/60 hover:bg-brand-gold hover:text-dark-bg rounded-lg border border-white/5 hover:border-transparent transition-all duration-300">
                           <Mail size={13} />
                         </a>
                       </div>
@@ -975,10 +990,34 @@ export default function App() {
                         </div>
                         <div>
                           <span className="text-[9px] font-mono text-neutral-500 uppercase block">PHONE CHANNEL</span>
-                          <span className="text-xs text-white font-bold">
+                          <a href="https://wa.me/917083353166" target="_blank" rel="noopener noreferrer" className="text-xs text-white font-bold hover:text-brand-purple transition-all">
                             +91 7083353166
-                          </span>
+                          </a>
                         </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3 pt-2">
+                        {[
+                          { label: "LinkedIn", href: PORTFOLIO_DATA.profile.linkedin, icon: Linkedin, color: "text-brand-cyan" },
+                          { label: "GitHub", href: PORTFOLIO_DATA.profile.github, icon: Github, color: "text-white" },
+                          { label: "Instagram", href: PORTFOLIO_DATA.profile.instagram, icon: Instagram, color: "text-pink-400" },
+                          { label: "WhatsApp", href: PORTFOLIO_DATA.profile.whatsapp, icon: MessageCircle, color: "text-emerald-400" }
+                        ].map(({ label, href, icon: Icon, color }) => (
+                          <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-3 rounded-2xl border border-white/5 bg-neutral-900/30 p-3.5 transition-all duration-300 hover:border-white/10 hover:bg-neutral-900/50"
+                          >
+                            <span className={`flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 ${color}`}>
+                              <Icon size={16} />
+                            </span>
+                            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-300 group-hover:text-white">
+                              {label}
+                            </span>
+                          </a>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -1059,9 +1098,23 @@ export default function App() {
               <div>
                 <span>© 2026 ADITYA BET. ALL PORTFOLIO ARTIFACTS RECORDED SECURELY.</span>
               </div>
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
                 <span>PUNE, INDIA (GMT +5:30)</span>
                 <span className="text-brand-cyan">COGNITIVE EMULATOR ACTIVE</span>
+                <div className="flex items-center gap-2">
+                  {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/5 text-neutral-300 transition-all duration-300 hover:border-white/20 hover:text-white"
+                    >
+                      <Icon size={12} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </footer>

@@ -45,6 +45,8 @@ export const PORTFOLIO_DATA = {
     location: "Pune, India",
     linkedin: "https://linkedin.com/in/aditya-bet-592372219",
     github: "https://github.com/adityabet",
+    instagram: "https://www.instagram.com/aditya_bet_._/",
+    whatsapp: "https://wa.me/917083353166",
     bio: "Detail-oriented Software Developer and Data Analyst with experience in AI-assisted software development, business intelligence, and data-driven decision-making. Skilled in Python, SQL, Power BI, Excel, and AI tools. Passionate about developing innovative applications, optimizing business processes, and creating impactful digital products.",
     stats: [
       { label: "AI Products Engineered", value: "3+" },
