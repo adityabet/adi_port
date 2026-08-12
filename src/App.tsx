@@ -36,7 +36,7 @@ import SkillsSphere from "./components/SkillsSphere";
 import AIChatbot from "./components/AIChatbot";
 
 const HERO_SEQUENCE = [
-  { prefix: "HI, I'M", main: "Aditya Bet", accent: "AI Builder & Developer", bg: "from-cyan-500/10 to-transparent" },
+  { prefix: "HI, I'M", main: "Aditya Bet", accent: "Developer & Data Analyst", bg: "from-cyan-500/10 to-transparent" },
   { prefix: "I AM A", main: "Data Scientist", accent: "Turning Data into Intelligence", bg: "from-purple-500/10 to-transparent" },
   { prefix: "I SPECIALIZE IN", main: "Machine Learning", accent: "Linear Regression, Trees & XGBoost", bg: "from-blue-500/10 to-transparent" },
   { prefix: "I AM A", main: "Software Intern", accent: "At AmbuGrid System LLP", bg: "from-emerald-500/10 to-transparent" },
@@ -215,7 +215,7 @@ export default function App() {
                   {/* Floating active chip status */}
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-neutral-900/60 border border-white/10 backdrop-blur-md rounded-full text-[10px] font-mono tracking-[0.22em] text-brand-cyan uppercase mb-8 shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
-                    <span>AI-Engineered Portfolio v1.5</span>
+                    <span>Portfolio v1.5</span>
                   </div>
 
                   {/* Sequential slider text layer */}
@@ -873,7 +873,7 @@ export default function App() {
                           </div>
                           <div className="flex items-center justify-between text-xs text-neutral-400">
                             <span>Role Focus</span>
-                            <span className="font-mono text-brand-gold">AI / Data</span>
+                            <span className="font-mono text-brand-gold">Data / Analytics</span>
                           </div>
                         </div>
                       </div>
@@ -1041,7 +1041,7 @@ export default function App() {
                           </div>
                           <h3 className="font-display font-black text-xl text-white tracking-tight">Signal Received Successfully!</h3>
                           <p className="text-xs text-neutral-400 mt-2 max-w-sm">
-                            Thank you. Aditya has been notified and his AI counterpart has recorded this interaction. He will reach back to you shortly.
+                            Thank you. Your message has been recorded successfully and Aditya will get back to you shortly.
                           </p>
                         </div>
                       ) : (
@@ -1108,7 +1108,7 @@ export default function App() {
               </div>
               <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
                 <span>PUNE, INDIA (GMT +5:30)</span>
-                <span className="text-brand-cyan">COGNITIVE EMULATOR ACTIVE</span>
+                <span className="text-brand-cyan">PORTFOLIO ACTIVE</span>
                 <div className="flex items-center gap-2">
                   {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
                     <a

@@ -22,7 +22,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "model",
-      content: "Welcome! I am Aditya's **AI Twin v1.0**. I have full semantic knowledge of his projects, engineering skills, and internships. Select a prompt below or ask me any interview question!"
+      content: "Welcome! I am Aditya's portfolio assistant. I can help you explore his projects, skills, and experience. Select a prompt below or ask me a question about his work."
     }
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -60,7 +60,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
           ...prev,
           {
             role: "model",
-            content: "My connection experienced a minor anomaly. I can reassure you that Aditya is reachable directly at adityabet214@gmail.com!"
+            content: "There was a brief connection issue. Aditya can be reached directly at adityabet214@gmail.com."
           }
         ]);
       }
@@ -70,7 +70,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
         ...prev,
         {
           role: "model",
-          content: "Network handshake timed out. However, you can review Aditya's skills directly in the sections behind me or email him at adityabet214@gmail.com!"
+          content: "The connection timed out, but you can review Aditya's profile in the portfolio sections or email him directly at adityabet214@gmail.com."
         }
       ]);
     } finally {
@@ -99,10 +99,10 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-display font-black text-xs text-white tracking-wide">ADITYA_AI</span>
-              <span className="text-[8px] font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/25 px-1.5 py-0.5 rounded-full">v1.0</span>
+              <span className="font-display font-black text-xs text-white tracking-wide">ADITYA</span>
+              <span className="text-[8px] font-mono bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/25 px-1.5 py-0.5 rounded-full">PORTFOLIO</span>
             </div>
-            <span className="text-[9px] font-mono text-neutral-400 block mt-0.5">Cognitive Recruiter Replica</span>
+            <span className="text-[9px] font-mono text-neutral-400 block mt-0.5">Portfolio Assistant</span>
           </div>
         </div>
 
@@ -125,7 +125,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
               className={`flex flex-col max-w-[85%] ${isModel ? "self-start" : "self-end items-end"}`}
             >
               <span className="text-[8px] font-mono text-neutral-500 mb-1">
-                {isModel ? "Replica" : "You"}
+                {isModel ? "Assistant" : "You"}
               </span>
               <div
                 className={`p-3.5 rounded-2xl text-xs leading-relaxed ${
@@ -154,7 +154,7 @@ export default function AIChatbot({ isOpen, onClose }: AIChatbotProps) {
 
         {isLoading && (
           <div className="self-start flex flex-col max-w-[80%]">
-            <span className="text-[8px] font-mono text-neutral-500 mb-1">Replica</span>
+            <span className="text-[8px] font-mono text-neutral-500 mb-1">Assistant</span>
             <div className="p-3 bg-neutral-900/40 border border-white/5 rounded-2xl rounded-tl-none flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-bounce" style={{ animationDelay: "0ms" }} />
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-bounce" style={{ animationDelay: "150ms" }} />
